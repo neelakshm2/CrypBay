@@ -4,8 +4,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
+import { Fontisto } from "@expo/vector-icons";
 import Feed from "./screens/Feed";
 import Vault from "./screens/Vault";
+import Buy from "./screens/Buy";
 
 function LogoTitle() {
   return (
@@ -60,6 +62,20 @@ function MyTabs() {
           headerTitle: (props) => <LogoTitle {...props} />,
           tabBarIcon: ({ color, size }) => (
             <Entypo name="wallet" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Buy"
+        component={Buy}
+        options={{
+          tabBarLabel: "Buy",
+          headerStyle: {
+            backgroundColor: "#F3E5F5",
+          },
+          headerTitle: (props) => <LogoTitle {...props} />,
+          tabBarIcon: ({ color, size }) => (
+            <Fontisto name="shopping-bag-1" size={size} color={color} />
           ),
         }}
       />

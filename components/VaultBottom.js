@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { View, Text } from "react-native";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, KeyboardAvoidingView } from "react-native";
 import Deposit from "./Deposit";
 import Withdraw from "./Withdraw";
 
 export default function Bottom() {
   const [activeTab, setActiveTab] = useState("Deposit");
-
   return (
     <View style={{ flexDirection: "row", alignSelf: "center" }}>
       <HeaderButton

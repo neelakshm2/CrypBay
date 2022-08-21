@@ -3,9 +3,6 @@ import {
   Text,
   StyleSheet,
   TextInput,
-  TouchableWithoutFeedback,
-  Keyboard,
-  KeyboardAvoidingView,
   TouchableOpacity,
 } from "react-native";
 import React from "react";
