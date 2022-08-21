@@ -30,12 +30,12 @@ const styles = EStyleSheet.create({
   content: {
     fontWeight: "400",
     fontSize: "55rem",
-    top: "86rem",
+    top: "76rem",
     letterSpacing: -2,
   },
 
   address: {
-    top: "100rem",
+    top: "90rem",
     fontSize: "19rem",
     backgroundColor: "#F3E5F5",
     borderRadius: "25rem",

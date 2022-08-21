@@ -71,7 +71,7 @@ const styles = EStyleSheet.create({
   },
   scanner: {
     position: "absolute",
-    top: "250rem",
+    top: "240rem",
     right: "-285rem",
     width: "580rem",
     height: "270rem",

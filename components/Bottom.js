@@ -51,7 +51,7 @@ const styles = EStyleSheet.create({
     borderBottomWidth: "2.5rem",
     paddingVertical: "4.5rem",
     paddingHorizontal: "64rem",
-    marginTop: "190rem",
+    marginTop: "170rem",
   },
   content: { fontSize: "22.5rem", fontWeight: "400" },
 });

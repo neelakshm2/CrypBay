@@ -19,7 +19,8 @@ export default function Generator() {
 const styles = EStyleSheet.create({
   content: {
     position: "absolute",
-    top: "280rem",
+    top: "260rem",
+    alignSelf: "center",
     right: "96rem",
   },
 });
