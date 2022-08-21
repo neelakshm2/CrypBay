@@ -1,4 +1,4 @@
-import { View, Text, PixelRatio } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
 import Bottom from "../components/Bottom";
