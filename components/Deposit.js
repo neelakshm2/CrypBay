@@ -4,8 +4,13 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
 import React from "react";
+import EStyleSheet from "react-native-extended-stylesheet";
+
+let entireScreenWidth = Dimensions.get("window").width;
+EStyleSheet.build({ $rem: entireScreenWidth / 380 });
 
 export default function Deposit() {
   return (
@@ -40,56 +45,49 @@ export default function Deposit() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
-    //flex: 1,
-    justifyContent: "center",
     alignItems: "center",
-    right: 193,
+    right: "193rem",
   },
   content: {
     position: "absolute",
-    top: 360,
+    top: "270rem",
     fontWeight: "400",
-    fontSize: 18,
+    fontSize: "17rem",
     textAlign: "center",
     fontStyle: "italic",
   },
   input: {
-    //flex: 4,
     position: "absolute",
-    top: 460,
-    height: 40,
-    borderWidth: 2,
+    top: "360rem",
+    height: "38rem",
+    borderWidth: "2rem",
     borderColor: "#777",
-    borderRadius: 12,
-    padding: 10,
-    paddingLeft: 20,
-    width: 330,
+    borderRadius: "12rem",
+    paddingLeft: "20rem",
+    width: "310rem",
   },
   button: {
     position: "absolute",
     fontWeight: "300",
-    fontSize: 16,
-    top: 468,
-    right: 55,
-    textAlign: "center",
+    fontSize: "16rem",
+    top: "367rem",
+    right: "55rem",
     color: "#9C27B0",
   },
   buttonMain: {
     position: "absolute",
-    right: 41,
-    top: 360,
+    right: "46rem",
+    top: "310rem",
     backgroundColor: "#9C27B0",
     color: "#FFFFFF",
-    width: 300,
-    padding: 10,
-    paddingTop: 12,
+    width: "290rem",
+    paddingTop: "12rem",
     textAlign: "center",
-    height: 50,
-    paddingHorizontal: 40,
-    borderRadius: 12,
-    fontSize: 19,
+    height: "50rem",
+    borderRadius: "12rem",
+    fontSize: "19rem",
     fontWeight: "600",
     letterSpacing: 1,
   },

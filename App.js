@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, Dimensions } from "react-native";
+import EStyleSheet from "react-native-extended-stylesheet";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -9,21 +10,11 @@ import Feed from "./screens/Feed";
 import Vault from "./screens/Vault";
 import Buy from "./screens/Buy";
 
+let entireScreenWidth = Dimensions.get("window").width;
+EStyleSheet.build({ $rem: entireScreenWidth / 380 });
+
 function LogoTitle() {
-  return (
-    <Image
-      style={{
-        width: 200,
-        height: 50,
-        flex: 1,
-        marginHorizontal: "21%",
-        position: "relative",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-      source={require("./assets/logo_.png")}
-    />
-  );
+  return <Image style={styles.logo} source={require("./assets/logo_.png")} />;
 }
 
 const Tab = createBottomTabNavigator();
@@ -90,3 +81,11 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+const styles = EStyleSheet.create({
+  logo: {
+    width: "240rem",
+    height: "60rem",
+    marginLeft: "54rem",
+  },
+});

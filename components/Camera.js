@@ -1,7 +1,17 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
 import React from "react";
 import { BarCodeScanner } from "expo-barcode-scanner";
 import { useState, useEffect } from "react";
+import EStyleSheet from "react-native-extended-stylesheet";
+
+let entireScreenWidth = Dimensions.get("window").width;
+EStyleSheet.build({ $rem: entireScreenWidth / 380 });
 
 export default function Camera() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -26,14 +36,7 @@ export default function Camera() {
       <View style={styles.container}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
-          style={{
-            position: "absolute",
-            top: 360,
-            right: -300,
-            width: 600,
-            height: 280,
-            padding: 20,
-          }}
+          style={styles.scanner}
         />
       </View>
     );
@@ -47,38 +50,30 @@ export default function Camera() {
   );
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
-    justifyContent: "center",
-    alignItems: "center",
-    right: 192,
-  },
-  content: {
-    position: "absolute",
-    top: 380,
-    textAlign: "center",
-    fontWeight: "bold",
-    fontSize: 20,
-  },
-  scanner: {
-    position: "absolute",
-    height: "100%",
-    width: "100%",
+    right: "185rem",
   },
   button: {
     position: "absolute",
-    top: 450,
-    right: -145,
+    top: "330rem",
+    right: "-140rem",
     backgroundColor: "#9C27B0",
     color: "#FFFFFF",
-    width: 300,
-    padding: 10,
-    paddingTop: 12,
+    width: "280rem",
+    paddingTop: "12rem",
     textAlign: "center",
-    height: 50,
-    borderRadius: 12,
-    fontSize: 19,
+    height: "50rem",
+    borderRadius: "20rem",
+    fontSize: "18rem",
     fontWeight: "600",
     letterSpacing: 1,
+  },
+  scanner: {
+    position: "absolute",
+    top: "250rem",
+    right: "-285rem",
+    width: "580rem",
+    height: "270rem",
   },
 });

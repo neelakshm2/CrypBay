@@ -1,49 +1,44 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, Dimensions } from "react-native";
 import React from "react";
 import { StyleSheet } from "react-native";
+import EStyleSheet from "react-native-extended-stylesheet";
 import Bottom from "../components/Bottom";
+
+let entireScreenWidth = Dimensions.get("window").width;
+EStyleSheet.build({ $rem: entireScreenWidth / 380 });
 
 export default function Feed() {
   return (
     <View>
-      <View style={styles.container1}>
-        <View style={styles.container1}>
+      <View>
+        <View style={styles.container}>
           <Text style={styles.content}> $ 156.12 </Text>
         </View>
-        <View style={styles.container2}>
+        <View style={styles.container}>
           <Text style={styles.address}> 0xe4D...8242 </Text>
         </View>
       </View>
-      <View>
-        <Bottom />
-      </View>
+      <Bottom />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container1: {
-    flex: 1,
-    justifyContent: "center",
+const styles = EStyleSheet.create({
+  container: {
     alignItems: "center",
   },
   content: {
     fontWeight: "400",
-    fontSize: 60,
-    position: "absolute",
-    top: 90,
-    letterSpacing: -1,
+    fontSize: "55rem",
+    top: "86rem",
+    letterSpacing: -2,
   },
-  container2: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
+
   address: {
-    position: "absolute",
-    top: 170,
-    fontSize: 20,
+    top: "100rem",
+    fontSize: "19rem",
     backgroundColor: "#F3E5F5",
-    borderRadius: 25,
+    borderRadius: "25rem",
+    paddingHorizontal: "5rem",
   },
 });
