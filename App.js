@@ -19,15 +19,14 @@ function LogoTitle() {
   return <Image style={styles.logo} source={require("./assets/logo_.png")} />;
 }
 
-//key === "" || key === "no key" ? Auth :
-
-global.key = "";
-
 const Tab = createBottomTabNavigator();
 function MyTabs() {
+  const [key, setKey] = useState("");
+  const [vault, setVault] = useState(0.498);
+  const [bal, setBal] = useState(1.098);
   return (
     <Tab.Navigator
-      initialRouteName="Auth"
+      initialRouteName="Feed"
       screenOptions={{
         tabBarActiveTintColor: "#9C27B0",
         tabBarStyle: { backgroundColor: "#F3E5F5" },
@@ -35,7 +34,19 @@ function MyTabs() {
     >
       <Tab.Screen
         name="Feed"
-        component={key === "" || key === "no key" ? Auth : Feed}
+        children={() =>
+          key === "" || key === "no key" ? (
+            <Auth key={key} setKey={setKey} />
+          ) : (
+            <Feed
+              key={key}
+              vault={vault}
+              bal={bal}
+              setVault={setVault}
+              setBal={setBal}
+            />
+          )
+        }
         options={{
           tabBarLabel: "Home",
           headerStyle: {
@@ -49,7 +60,19 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Vault"
-        component={Vault}
+        children={() =>
+          key === "" || key === "no key" ? (
+            <Auth key={key} setKey={setKey} />
+          ) : (
+            <Vault
+              key={key}
+              vault={vault}
+              bal={bal}
+              setVault={setVault}
+              setBal={setBal}
+            />
+          )
+        }
         options={{
           tabBarLabel: "Vault",
           headerStyle: {
@@ -63,7 +86,13 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Buy"
-        component={Buy}
+        children={() =>
+          key === "" || key === "no key" ? (
+            <Auth key={key} setKey={setKey} />
+          ) : (
+            <Buy key={key} />
+          )
+        }
         options={{
           tabBarLabel: "Buy",
           headerStyle: {
@@ -72,20 +101,6 @@ function MyTabs() {
           headerTitle: (props) => <LogoTitle {...props} />,
           tabBarIcon: ({ color, size }) => (
             <Fontisto name="shopping-bag-1" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Auth"
-        component={Auth}
-        options={{
-          tabBarLabel: "Login",
-          headerStyle: {
-            backgroundColor: "#F3E5F5",
-          },
-          headerTitle: (props) => <LogoTitle {...props} />,
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
         }}
       />

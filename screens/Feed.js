@@ -1,18 +1,23 @@
 import { View, Text, ScrollView, Dimensions } from "react-native";
-import React from "react";
+import React, { useEffect } from "react";
 import { StyleSheet } from "react-native";
 import EStyleSheet from "react-native-extended-stylesheet";
 import Bottom from "../components/Bottom";
+import { useWallet } from "../hooks/useWallet";
 
 let entireScreenWidth = Dimensions.get("window").width;
 EStyleSheet.build({ $rem: entireScreenWidth / 380 });
 
-export default function Feed() {
+export default function Feed({ key, vault, setVault, bal, setBal }) {
+  // const wallet = useWallet(key);
+  // useEffect(()=>{
+  //   console.log(wallet.getAddress())
+  // })
   return (
     <View>
       <View>
         <View style={styles.container}>
-          <Text style={styles.content}> $ 156.12 </Text>
+          <Text style={styles.content}> $ {bal.toString()} </Text>
         </View>
         <View style={styles.container}>
           <Text style={styles.address}> 0xe4D...8242 </Text>

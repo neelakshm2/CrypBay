@@ -5,8 +5,6 @@ import Web3Auth from "@web3auth/react-native-sdk";
 import { Buffer } from "buffer";
 import { OPENLOGIN_NETWORK } from "@web3auth/react-native-sdk";
 
-const clientId =
-  "BKdBQDC_z6Uvn7wNScvemlwOjGQwFegRnB420NrLAxveH-WAoyebOcYQvOp_x3XVh7hVHttCHe7gn5yneQQtNsY";
 const scheme = "crypbay";
 
 global.Buffer = global.Buffer || Buffer;
@@ -17,7 +15,7 @@ const resolvedRedirectUrl =
     ? Linking.createURL("web3auth", {})
     : Linking.createURL("web3auth", { scheme: scheme });
 
-export const login = async ({ setKey, setUserInfo }) => {
+export const login = async ({ setKey }) => {
   try {
     const web3auth = new Web3Auth(WebBrowser, {
       clientId: "BKdBQDC_z6Uvn7wNScvemlwOjGQwFegRnB420NrLAxveH-WAoyebOcYQvOp_x3XVh7hVHttCHe7gn5yneQQtNsY",
@@ -27,7 +25,6 @@ export const login = async ({ setKey, setUserInfo }) => {
       redirectUrl: resolvedRedirectUrl,
     });
     setKey(state.privKey || "no key");
-    setUserInfo(state);
   } catch (e) {
     console.error(e);
   }

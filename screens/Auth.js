@@ -8,18 +8,23 @@ import EStyleSheet from "react-native-extended-stylesheet";
 let entireScreenWidth = Dimensions.get("window").width;
 EStyleSheet.build({ $rem: entireScreenWidth / 380 });
 
-global.key = "";
-export default function Auth() {
-  //const [key, setKey] = useState("");
+export default function Auth({ key, setKey }) {
   const [userInfo, setUserInfo] = useState(null);
   useEffect(() => {
     console.log(key);
-  }, [key, userInfo]);
+  }, [key]);
   return (
     <View style={styles.container}>
       <Text style={styles.content}>Please Login to Continue</Text>
       <TouchableOpacity>
-        <Text style={styles.buttonMain}>LOGIN</Text>
+        <Text
+          style={styles.buttonMain}
+          onPress={async () => {
+            login({ setKey });
+          }}
+        >
+          LOGIN
+        </Text>
       </TouchableOpacity>
     </View>
   );

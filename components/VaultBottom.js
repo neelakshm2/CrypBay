@@ -8,7 +8,7 @@ import Withdraw from "./Withdraw";
 let entireScreenWidth = Dimensions.get("window").width;
 EStyleSheet.build({ $rem: entireScreenWidth / 380 });
 
-export default function Bottom() {
+export default function Bottom({ vault, setVault, bal, setBal }) {
   const [activeTab, setActiveTab] = useState("Deposit");
   return (
     <View style={{ flexDirection: "row", alignSelf: "center" }}>
@@ -22,8 +22,12 @@ export default function Bottom() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       />
-      {activeTab === "Deposit" && <Deposit />}
-      {activeTab === "Withdraw" && <Withdraw />}
+      {activeTab === "Deposit" && (
+        <Deposit vault={vault} bal={bal} setVault={setVault} setBal={setBal} />
+      )}
+      {activeTab === "Withdraw" && (
+        <Withdraw vault={vault} bal={bal} setVault={setVault} setBal={setBal} />
+      )}
     </View>
   );
 }

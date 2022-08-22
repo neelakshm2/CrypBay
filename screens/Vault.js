@@ -20,15 +20,15 @@ const DismissKeyboard = ({ children }) => (
   </TouchableWithoutFeedback>
 );
 
-export default function Vault() {
+export default function Vault({ vault, setVault, bal, setBal }) {
   return (
     <DismissKeyboard>
       <View>
         <View>
           <View style={styles.container}>
             <Text style={styles.content}>
-              {"  "}
-              $ 500 <Entypo name="lock" size={55} color="#9C27B0" />
+              {"  "}$ {vault.toString()}{" "}
+              <Entypo name="lock" size={55} color="#9C27B0" />
             </Text>
           </View>
           <View style={styles.container}>
@@ -36,7 +36,12 @@ export default function Vault() {
           </View>
         </View>
         <View>
-          <VaultBottom />
+          <VaultBottom
+            vault={vault}
+            bal={bal}
+            setVault={setVault}
+            setBal={setBal}
+          />
         </View>
       </View>
     </DismissKeyboard>

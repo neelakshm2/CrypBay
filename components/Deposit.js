@@ -7,13 +7,14 @@ import {
   Dimensions,
   Button,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import EStyleSheet from "react-native-extended-stylesheet";
 
 let entireScreenWidth = Dimensions.get("window").width;
 EStyleSheet.build({ $rem: entireScreenWidth / 380 });
 
-export default function Deposit() {
+export default function Deposit({ vault, setVault, bal, setBal }) {
+  const [amount, setAmount] = useState(0);
   return (
     <>
       <View style={styles.container}>
@@ -25,6 +26,8 @@ export default function Deposit() {
         <View style={styles.container}>
           <TextInput
             style={styles.input}
+            onChangeText={(val) => setAmount(val)}
+            value={amount}
             placeholder="Enter Amount"
             keyboardType="numeric"
           />
@@ -32,13 +35,29 @@ export default function Deposit() {
 
         <View style={{ flex: 1 }}>
           <TouchableOpacity>
-            <Text style={styles.button}>Max</Text>
+            <Text
+              style={styles.button}
+              onPress={() => {
+                setAmount(bal);
+                console.log(amount);
+              }}
+            >
+              Max
+            </Text>
           </TouchableOpacity>
         </View>
 
         <View style={{ flex: 1 }}>
           <TouchableOpacity>
-            <Text style={styles.buttonMain}>DEPOSIT</Text>
+            <Text
+              style={styles.buttonMain}
+              onPress={() => {
+                setVault(vault + parseFloat(amount) - 0.002);
+                setBal(bal - parseInt(amount) - 0.002);
+              }}
+            >
+              DEPOSIT
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
