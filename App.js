@@ -34,19 +34,15 @@ function MyTabs() {
     >
       <Tab.Screen
         name="Feed"
-        children={() =>
-          key === "" || key === "no key" ? (
-            <Auth key={key} setKey={setKey} />
-          ) : (
-            <Feed
-              key={key}
-              vault={vault}
-              bal={bal}
-              setVault={setVault}
-              setBal={setBal}
-            />
-          )
-        }
+        children={() => (
+          <Feed
+            key={key}
+            vault={vault}
+            bal={bal}
+            setVault={setVault}
+            setBal={setBal}
+          />
+        )}
         options={{
           tabBarLabel: "Home",
           headerStyle: {
@@ -60,19 +56,15 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Vault"
-        children={() =>
-          key === "" || key === "no key" ? (
-            <Auth key={key} setKey={setKey} />
-          ) : (
-            <Vault
-              key={key}
-              vault={vault}
-              bal={bal}
-              setVault={setVault}
-              setBal={setBal}
-            />
-          )
-        }
+        children={() => (
+          <Vault
+            key={key}
+            vault={vault}
+            bal={bal}
+            setVault={setVault}
+            setBal={setBal}
+          />
+        )}
         options={{
           tabBarLabel: "Vault",
           headerStyle: {
@@ -86,13 +78,7 @@ function MyTabs() {
       />
       <Tab.Screen
         name="Buy"
-        children={() =>
-          key === "" || key === "no key" ? (
-            <Auth key={key} setKey={setKey} />
-          ) : (
-            <Buy key={key} />
-          )
-        }
+        children={() => <Buy key={key} />}
         options={{
           tabBarLabel: "Buy",
           headerStyle: {
